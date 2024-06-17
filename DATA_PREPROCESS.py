@@ -32,8 +32,8 @@ def process_tsv(file_path, accents, clips_path):
     data = pd.read_csv(file_path, sep='\t')
     data['file_name'] = data['path'] + '.mp3'
     data['file_path'] = data['file_name'].apply(lambda x: os.path.join(clips_path, x))
-    data = data[data['accent'].isin(accents)]  # Filter rows where accent is in the accents list
-    return data[['file_name', 'file_path', 'accent']]
+    data = data[data['accents'].isin(accents)]  # Filter rows where accent is in the accents list
+    return data[['file_name', 'file_path', 'accents']]
 
 def save_to_csv(data, output_path):
     data.to_csv(output_path, index=False)
