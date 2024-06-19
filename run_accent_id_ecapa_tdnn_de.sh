@@ -6,7 +6,7 @@
 #
 # SPDX-License-Identifier: MIT-License 
 
-# Base script to fine-tune a ECAPA-TDNN model on Accent Classification for English
+# Base script to fine-tunine a ECAPA-TDNN model on Accent Classification for English
 #######################################
 # COMMAND LINE OPTIONS,
 # high-level variables for training the model. TrainingArguments (HuggingFace)
@@ -23,13 +23,14 @@ ecapa_tdnn_hub="speechbrain/spkrec-ecapa-voxceleb/embedding_model.ckpt"
 seed="1988"
 apply_augmentation="True"
 max_batch_len=300 #600
-num_epochs=3
+number_of_epochs=3
 
 # data folder:
 # csv_prepared_folder="/nas/projects/vokquant/accent-recog-slt2022/data/de"
 # output_dir="/nas/projects/vokquant/accent-recog-slt2022/results/ECAPA-TDNN/DE/spkrec-ecapa-voxceleb"
 csv_prepared_folder="/content/accent-recog-slt2022/data"
 output_dir="/content/accent-recog-slt2022/CommonAccent/results/ECAPA-TDNN/DE/spkrec-ecapa-voxceleb"
+
 
 # If augmentation is defined:
 if [ ! "$apply_augmentation" == 'True' ]; then
@@ -58,7 +59,6 @@ $cmd python3 accent_id/train.py accent_id/hparams/train_ecapa_tdnn.yaml \
     --csv_prepared_folder=$csv_prepared_folder \
     --apply_augmentation="$apply_augmentation" \
     --max_batch_len="$max_batch_len" \
-    --num_epochs="$num_epochs" \
     --output_folder="$output_folder" \
     --ecapa_tdnn_hub="$ecapa_tdnn_hub" 
 
