@@ -54,7 +54,7 @@ num_bucket: 5,
 apply_augmentation: true,
 augmentation: ["noise", "reverb", "speed"],
 lr: 0.001,
-opt_class: "Adam"
+opt_class: "Adam",
 n_accents: 7 
 
 emb_dim: 192 # dimensionality of the embeddings
